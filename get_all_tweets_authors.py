@@ -14,13 +14,13 @@ else:
     for key, tweet in enumerate(allTweets) :
         username = tweet['username']
         author = {
-            'username': username,
+            'name': username,
             'screen_name': username
         }
         if author not in authors :
             authors.append(author)
 
-authors = sorted(authors, key=lambda i: i['screen_name'].lower())
+authors = sorted(authors, key=lambda i: i['name'].lower())
 authorsJson = json.dumps(authors, sort_keys=True, indent=4)
 
 f = open("json-files/all_tweets_authors.json", "w")
